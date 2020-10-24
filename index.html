@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Resume</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <title>Izzun Mustaqim</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -16,16 +17,22 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="calculateExp()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="d-block d-lg-none">Resume</span><span class="d-none d-lg-block"><img
-                    class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/gambar.jpg"
-                    alt="" /></span></a><button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">Resume</span><span class="d-none d-lg-block"><img
+                    class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/gambar.jpg" alt="" />
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            </span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
@@ -53,7 +60,8 @@
                             class="fab fa-linkedin-in"></i></a><a class="social-icon"
                         href="https://github.com/izzunmustaqim"><i class="fab fa-github"></i></a><a class="social-icon"
                         href="https://twitter.com/IzzunMustaqim"><i class="fab fa-twitter"></i></a><a
-                        class="social-icon" href="https://www.facebook.com/izzunmustaqim"><i class="fab fa-facebook-f"></i></a>
+                        class="social-icon" href="https://www.facebook.com/izzunmustaqim"><i
+                            class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </section>
@@ -61,7 +69,7 @@
         <!-- Experience-->
         <section class="resume-section" id="experience">
             <div class="resume-section-content">
-                <h2 class="mb-5">Experience</h2>
+                <h2 class="mb-5" id="exp">Experience </h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0">Software Engineer / EDI Developer</h3>
@@ -94,7 +102,8 @@
                     <div class="flex-grow-1">
                         <h3 class="mb-0">SKIM LATIHAN 1 MALAYSIA (SL1M)</h3>
                         <div class="subheading mb-3">TELEKOM MALAYSIA</div>
-                        <p>• Troubleshoot various network issues and collaborate with staff and vendors to resolve problems.</p>
+                        <p>• Troubleshoot various network issues and collaborate with staff and vendors to resolve
+                            problems.</p>
                         <p>• Configured and installed routers switches and wireless controllers.</p>
                         <p>• Identify and recommend needed and optimal infrastructure improvements.</p>
                     </div>
@@ -104,8 +113,10 @@
                     <div class="flex-grow-1">
                         <h3 class="mb-0">Android Developer Intern</h3>
                         <div class="subheading mb-3">Applab Sdn Bhd</div>
-                        <p>• Implemented Android Java Apps for Good Morning Global Sdn Bhd and YL Image Graphics Sdn Bhd.</p>
-                        <p>• Use Restful APIs with ASP.NET Web API to connect android applications to back end services.</p>
+                        <p>• Implemented Android Java Apps for Good Morning Global Sdn Bhd and YL Image Graphics Sdn
+                            Bhd.</p>
+                        <p>• Use Restful APIs with ASP.NET Web API to connect android applications to back end services.
+                        </p>
                         <p>• Create and prototype solutions and proof of concepts to demonstration innovations.</p>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">February 2016 - June 2016</span></div>
@@ -180,7 +191,8 @@
         <section class="resume-section" id="interests">
             <div class="resume-section-content">
                 <h2 class="mb-5">Interests</h2>
-                <p>Apart from being a software engineer, I enjoy most of my time being outdoors. I really love playing table tennis and badminton</p>
+                <p>Apart from being a software engineer, I enjoy most of my time being outdoors. I really love playing
+                    table tennis and badminton</p>
                 <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television
                     shows and I spend a large amount of my free time exploring the latest
                     technology advancements in the web development world.</p>
@@ -231,6 +243,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
+    <script>
+
+        function calculateExp() {
+            // Assumes Date From (df) and Date To (dt) are valid etc...
+            var df = new Date("03/01/2017");
+            var dt = new Date();
+            var allMonths = dt.getMonth() - df.getMonth() + (12 * (dt.getFullYear() - df.getFullYear()));
+            var allYears = dt.getFullYear() - df.getFullYear();
+            var partialMonths = dt.getMonth() - df.getMonth();
+            if (partialMonths < 0) {
+                allYears--;
+                partialMonths = partialMonths + 12;
+            }
+            document.getElementById("exp").innerHTML = document.getElementById("exp").innerHTML + '(' + allYears + ' Years ' + partialMonths + ' Months)';
+
+        }
+
+    </script>
 </body>
 
 </html>
