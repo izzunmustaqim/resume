@@ -27,17 +27,17 @@ const resumeData = {
     // =====================================================
     experiences: [
         {
-            company_name: "Tech Solutions Sdn Bhd",
-            job_title: "Senior Developer",
+            company_name: "Fujitsu Systems Global Solutions Management Sdn Bhd",
+            job_title: "System Engineer",
             location: "Kuala Lumpur, Malaysia",
-            start_date: "2022-01-01",
+            start_date: "2021-09-01",
             end_date: null,
             is_current: true,
-            description: "- Led development of enterprise web applications\n- Mentored junior developers\n- Implemented CI/CD pipelines"
+            description: "- Participated across the full project lifecycle, including planning, execution, and delivery\n- Coordinate with global stakeholders including Japan Delivery Unit (JDU) to ensure seamless collaboration and solution alignment\n- Carried out the PT Specification to list all the possible test cases to be performed after the PG completion\n- Executed the manual test based on the PT Specification and created the PT Evidence\n- Performed review activities using the PT Review document, which resulted in quality deliverables that reduced the defect rate.\n- Develop Proof of Concept (POC) applications and introduce new tools to improve system capabilities"
         },
         {
-            company_name: "Digital Agency Co",
-            job_title: "Web Developer",
+            company_name: "B2BE GSS SDN BHD",
+            job_title: "Software Engineer",
             location: "Petaling Jaya, Malaysia",
             start_date: "2019-06-01",
             end_date: "2021-12-31",
@@ -51,12 +51,20 @@ const resumeData = {
     // =====================================================
     education: [
         {
-            institution: "University of Malaya",
-            degree: "Bachelor of Computer Science",
-            field_of_study: "Software Engineering",
-            location: "Kuala Lumpur, Malaysia",
+            institution: "Universiti Teknologi Mara (UiTM) Jasin, Melaka",
+            degree: "Bachelor Of Computer Science (Hons.) Netcentric Computing",
+            field_of_study: "",
+            location: "Jasin, Melaka",
             start_date: "2015-09-01",
             end_date: "2019-06-30"
+        },
+        {
+            institution: "Universiti Teknologi Mara (UiTM) Dungun, Terengganu",
+            degree: "Diploma In Computer Science",
+            field_of_study: "",
+            location: "Dungun, Terengganu",
+            start_date: "2011",
+            end_date: "2013"
         }
     ],
 

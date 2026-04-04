@@ -113,9 +113,10 @@
                     html += '<h3 class="resume-entry-title">' + escapeHtml(exp.job_title) + '</h3>';
                     html += '<span class="resume-entry-date">' + formatDateRange(exp.start_date, exp.end_date, exp.is_current) + '</span>';
                     html += '</div>';
-                    html += '<p class="resume-entry-subtitle">' + escapeHtml(exp.company_name);
-                    if (exp.location) html += ', ' + escapeHtml(exp.location);
-                    html += '</p>';
+                    html += '<div class="resume-entry-sub-row">';
+                    html += '<p class="resume-entry-subtitle">' + escapeHtml(exp.company_name) + '</p>';
+                    if (exp.location) html += '<span class="resume-entry-location">' + escapeHtml(exp.location) + '</span>';
+                    html += '</div>';
                     if (exp.description) {
                         html += '<div class="resume-entry-description">' + parseDescription(exp.description) + '</div>';
                     }
@@ -136,9 +137,10 @@
                     html += '</h3>';
                     html += '<span class="resume-entry-date">' + formatDateRange(edu.start_date, edu.end_date) + '</span>';
                     html += '</div>';
-                    html += '<p class="resume-entry-subtitle">' + escapeHtml(edu.institution);
-                    if (edu.location) html += ', ' + escapeHtml(edu.location);
-                    html += '</p>';
+                    html += '<div class="resume-entry-sub-row">';
+                    html += '<p class="resume-entry-subtitle">' + escapeHtml(edu.institution) + '</p>';
+                    if (edu.location) html += '<span class="resume-entry-location">' + escapeHtml(edu.location) + '</span>';
+                    html += '</div>';
                     html += '</div>';
                 });
                 html += '</section>';

@@ -137,10 +137,25 @@
     white-space: nowrap;
 }
 
+.resume-entry-sub-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
 .resume-entry-subtitle {
     font-size: var(--text-sm);
     color: var(--gray-700);
-    margin-bottom: var(--space-2);
+    margin: 0;
+}
+
+.resume-entry-location {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    white-space: nowrap;
 }
 
 .resume-entry-description {
