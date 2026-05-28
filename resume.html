@@ -92,6 +92,15 @@
             if (profile.phone) {
                 html += '<span class="resume-contact-item">' + escapeHtml(profile.phone) + '</span>';
             }
+            if (profile.linkedin_url) {
+                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.linkedin_url) + '" target="_blank">LinkedIn</a></span>';
+            }
+            if (profile.website_url) {
+                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.website_url) + '" target="_blank">GitHub</a></span>';
+            }
+            if (profile.portfolio_url) {
+                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.portfolio_url) + '" target="_blank">Portfolio</a></span>';
+            }
             html += '</div>';
             html += '</header>';
 
@@ -150,8 +159,24 @@
             if (data.skills.length > 0) {
                 html += '<section class="resume-section">';
                 html += '<h2 class="resume-section-title">Skills</h2>';
-                html += '<div class="resume-skills-list">';
-                html += data.skills.map(function (s) { return escapeHtml(s.skill_name); }).join(', ');
+                
+                const skillsByCategory = {};
+                data.skills.forEach(function(s) {
+                    if (!skillsByCategory[s.category]) {
+                        skillsByCategory[s.category] = [];
+                    }
+                    skillsByCategory[s.category].push(s);
+                });
+                
+                html += '<div class="resume-skills">';
+                for (const category in skillsByCategory) {
+                    html += '<div class="resume-skill-category">';
+                    html += '<h3 class="resume-skill-category-title">' + escapeHtml(category) + '</h3>';
+                    html += '<div class="resume-skills-list">';
+                    html += skillsByCategory[category].map(function (s) { return escapeHtml(s.skill_name); }).join(', ');
+                    html += '</div>';
+                    html += '</div>';
+                }
                 html += '</div>';
                 html += '</section>';
             }
@@ -187,6 +212,28 @@
                     }
                     html += '</div>';
                 });
+                html += '</section>';
+            }
+
+            // ── References ──
+            if (data.references && data.references.length > 0) {
+                html += '<section class="resume-section">';
+                html += '<h2 class="resume-section-title">References</h2>';
+                html += '<div class="resume-skills">'; // Reusing grid layout
+                data.references.forEach(function (ref) {
+                    html += '<div class="resume-reference">';
+                    html += '<h3 class="resume-entry-title">' + escapeHtml(ref.name) + '</h3>';
+                    html += '<p class="resume-entry-subtitle">' + escapeHtml(ref.title) + '</p>';
+                    html += '<p class="resume-entry-location">' + escapeHtml(ref.organization) + '</p>';
+                    if (ref.phone) {
+                        html += '<p class="resume-entry-location">' + escapeHtml(ref.phone) + '</p>';
+                    }
+                    if (ref.email) {
+                        html += '<p class="resume-entry-location"><a href="mailto:' + escapeHtml(ref.email) + '">' + escapeHtml(ref.email) + '</a></p>';
+                    }
+                    html += '</div>';
+                });
+                html += '</div>';
                 html += '</section>';
             }
 
