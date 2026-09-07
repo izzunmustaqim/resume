@@ -24,3 +24,6 @@ npm-debug.log
 # Environment files
 .env
 .env.local
+
+# Claude Code settings
+.claude/
