@@ -300,4 +300,8 @@
     .resume-actions {
         justify-content: center;
     }
+
+    #pdf-viewer {
+        height: 60vh;
+    }
 }
