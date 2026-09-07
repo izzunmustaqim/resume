@@ -89,10 +89,10 @@ const resumeData = {
     // =====================================================
     experiences: [
         {
-            company_name: "Enerlytic Intelligence Sdn Bhd",
+            company_name: "iSoftStone Sdn Bhd",
             job_title: "Senior Software Engineer",
             location: "One City, Subang Jaya",
-            start_date: "2025-12-01",
+            start_date: "2025-08-01",
             end_date: null,
             is_current: true,
             description: "- Developed and deployed a full-stack AI chatbot using Next.js 16, TypeScript, and OpenAI GPT-4o-mini to assess organizational compliance readiness for Malaysia's Energy Efficiency and Conservation Act (EECA) 2024\n- Engineered a structured 10-question assessment flow with automated scoring (0\u2013100), readiness band classification, gap analysis, and lead capture through advanced prompt engineering\n- Built interactive UI components with real-time AI streaming, dynamic option buttons, and multi-select checkboxes using Vercel AI SDK v3 and React 19\n- Integrated PostgreSQL for session tracking, conversation logging, contact management, and user feedback storage\n- Embedded full regulatory text (P.U.(A) 466) into the system prompt, enabling legally accurate responses to EECA compliance queries\n- Containerized the application with multi-stage Docker builds and deployed via Docker Compose with PostgreSQL, supporting self-hosted (VPS + Subdomain) environments\n- Designed a provider-agnostic AI architecture supporting OpenAI, Groq, and Google Gemini with hot-swappable configuration\n- Achieved 54 passing automated tests with Jest and React Testing Library across all components and API routes"
