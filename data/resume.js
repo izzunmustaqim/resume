@@ -91,7 +91,7 @@ const resumeData = {
         {
             company_name: "iSoftStone Sdn Bhd",
             job_title: "Senior Software Engineer",
-            location: "One City, Subang Jaya",
+            location: "Setia Alam, Shah Alam",
             start_date: "2025-08-01",
             end_date: null,
             is_current: true,
