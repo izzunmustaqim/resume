@@ -41,7 +41,8 @@
                     </svg>
                     Back
                 </a>
-                <a href="Muhammad_Izzun_Mustaqim_Resume.pdf" download class="btn btn-primary" style="display: flex; align-items: center; gap: 5px;">
+                <a href="Muhammad_Izzun_Mustaqim_Resume.pdf" download class="btn btn-primary"
+                    style="display: flex; align-items: center; gap: 5px;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -57,11 +58,13 @@
             </div>
 
             <!-- PDF Viewer -->
-            <div id="pdf-viewer" style="width: 100%; height: 80vh; margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <div id="pdf-viewer"
+                style="width: 100%; height: 80vh; margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <object data="Muhammad_Izzun_Mustaqim_Resume.pdf" type="application/pdf" width="100%" height="100%">
                     <div style="padding: 20px; text-align: center;">
                         <p>Your browser does not support PDFs.</p>
-                        <a href="Muhammad_Izzun_Mustaqim_Resume.pdf" download class="btn btn-primary" style="margin-top: 10px; display: inline-block;">Download the PDF</a>
+                        <a href="Muhammad_Izzun_Mustaqim_Resume.pdf" download class="btn btn-primary"
+                            style="margin-top: 10px; display: inline-block;">Download the PDF</a>
                     </div>
                 </object>
             </div>
@@ -77,179 +80,7 @@
 
     <script src="data/resume.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        /**
-         * Render the full resume from resumeData
-         */
-        (function () {
-            const data = resumeData;
-            const profile = data.profile;
-            let html = '';
 
-            // ── Header ──
-            html += '<header class="resume-header">';
-            html += '<h1 class="resume-name">' + escapeHtml(profile.full_name) + '</h1>';
-            if (profile.job_title) {
-                html += '<p class="resume-title">' + escapeHtml(profile.job_title) + '</p>';
-            }
-            html += '<div class="resume-contact">';
-            if (profile.location) {
-                html += '<span class="resume-contact-item">' + escapeHtml(profile.location) + '</span>';
-            }
-            if (profile.email) {
-                html += '<span class="resume-contact-item"><a href="mailto:' + escapeHtml(profile.email) + '">' + escapeHtml(profile.email) + '</a></span>';
-            }
-            if (profile.phone) {
-                html += '<span class="resume-contact-item">' + escapeHtml(profile.phone) + '</span>';
-            }
-            if (profile.linkedin_url) {
-                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.linkedin_url) + '" target="_blank">LinkedIn</a></span>';
-            }
-            if (profile.website_url) {
-                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.website_url) + '" target="_blank">GitHub</a></span>';
-            }
-            if (profile.portfolio_url) {
-                html += '<span class="resume-contact-item"><a href="' + escapeHtml(profile.portfolio_url) + '" target="_blank">Portfolio</a></span>';
-            }
-            html += '</div>';
-            html += '</header>';
-
-            // ── Professional Summary ──
-            if (profile.summary) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Professional Summary</h2>';
-                html += '<p class="resume-entry-description">' + escapeHtml(profile.summary) + '</p>';
-                html += '</section>';
-            }
-
-            // ── Work Experience ──
-            if (data.experiences.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Work Experience</h2>';
-                data.experiences.forEach(function (exp) {
-                    html += '<div class="resume-entry">';
-                    html += '<div class="resume-entry-header">';
-                    html += '<h3 class="resume-entry-title">' + escapeHtml(exp.job_title) + '</h3>';
-                    html += '<span class="resume-entry-date">' + formatDateRange(exp.start_date, exp.end_date, exp.is_current) + '</span>';
-                    html += '</div>';
-                    html += '<div class="resume-entry-sub-row">';
-                    html += '<p class="resume-entry-subtitle">' + escapeHtml(exp.company_name) + '</p>';
-                    if (exp.location) html += '<span class="resume-entry-location">' + escapeHtml(exp.location) + '</span>';
-                    html += '</div>';
-                    if (exp.description) {
-                        html += '<div class="resume-entry-description">' + parseDescription(exp.description) + '</div>';
-                    }
-                    html += '</div>';
-                });
-                html += '</section>';
-            }
-
-            // ── Education ──
-            if (data.education.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Education</h2>';
-                data.education.forEach(function (edu) {
-                    html += '<div class="resume-entry">';
-                    html += '<div class="resume-entry-header">';
-                    html += '<h3 class="resume-entry-title">' + escapeHtml(edu.degree);
-                    if (edu.field_of_study) html += ' in ' + escapeHtml(edu.field_of_study);
-                    html += '</h3>';
-                    html += '<span class="resume-entry-date">' + formatDateRange(edu.start_date, edu.end_date) + '</span>';
-                    html += '</div>';
-                    html += '<div class="resume-entry-sub-row">';
-                    html += '<p class="resume-entry-subtitle">' + escapeHtml(edu.institution) + '</p>';
-                    if (edu.location) html += '<span class="resume-entry-location">' + escapeHtml(edu.location) + '</span>';
-                    html += '</div>';
-                    html += '</div>';
-                });
-                html += '</section>';
-            }
-
-            // ── Skills ──
-            if (data.skills.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Skills</h2>';
-                
-                const skillsByCategory = {};
-                data.skills.forEach(function(s) {
-                    if (!skillsByCategory[s.category]) {
-                        skillsByCategory[s.category] = [];
-                    }
-                    skillsByCategory[s.category].push(s);
-                });
-                
-                html += '<div class="resume-skills">';
-                for (const category in skillsByCategory) {
-                    html += '<div class="resume-skill-category">';
-                    html += '<h3 class="resume-skill-category-title">' + escapeHtml(category) + '</h3>';
-                    html += '<div class="resume-skills-list">';
-                    html += skillsByCategory[category].map(function (s) { return escapeHtml(s.skill_name); }).join(', ');
-                    html += '</div>';
-                    html += '</div>';
-                }
-                html += '</div>';
-                html += '</section>';
-            }
-
-            // ── Certifications ──
-            if (data.certifications.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Certifications</h2>';
-                data.certifications.forEach(function (cert) {
-                    html += '<div class="resume-cert">';
-                    html += '<span class="resume-cert-name">' + escapeHtml(cert.cert_name) + '</span>';
-                    html += '<span class="resume-cert-org"> - ' + escapeHtml(cert.issuing_org) + '</span>';
-                    if (cert.issue_date) {
-                        html += '<span class="resume-cert-org"> (' + formatDate(cert.issue_date) + ')</span>';
-                    }
-                    html += '</div>';
-                });
-                html += '</section>';
-            }
-
-            // ── Projects ──
-            if (data.projects.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">Projects</h2>';
-                data.projects.forEach(function (project) {
-                    html += '<div class="resume-project">';
-                    html += '<div class="resume-project-name">' + escapeHtml(project.project_name) + '</div>';
-                    if (project.technologies_used) {
-                        html += '<div class="resume-project-tech">' + escapeHtml(project.technologies_used) + '</div>';
-                    }
-                    if (project.description) {
-                        html += '<div class="resume-project-desc">' + parseDescription(project.description) + '</div>';
-                    }
-                    html += '</div>';
-                });
-                html += '</section>';
-            }
-
-            // ── References ──
-            if (data.references && data.references.length > 0) {
-                html += '<section class="resume-section">';
-                html += '<h2 class="resume-section-title">References</h2>';
-                html += '<div class="resume-skills">'; // Reusing grid layout
-                data.references.forEach(function (ref) {
-                    html += '<div class="resume-reference">';
-                    html += '<h3 class="resume-entry-title">' + escapeHtml(ref.name) + '</h3>';
-                    html += '<p class="resume-entry-subtitle">' + escapeHtml(ref.title) + '</p>';
-                    html += '<p class="resume-entry-location">' + escapeHtml(ref.organization) + '</p>';
-                    if (ref.phone) {
-                        html += '<p class="resume-entry-location">' + escapeHtml(ref.phone) + '</p>';
-                    }
-                    if (ref.email) {
-                        html += '<p class="resume-entry-location"><a href="mailto:' + escapeHtml(ref.email) + '">' + escapeHtml(ref.email) + '</a></p>';
-                    }
-                    html += '</div>';
-                });
-                html += '</div>';
-                html += '</section>';
-            }
-
-            document.getElementById('resume-content').innerHTML = html;
-        })();
-    </script>
 </body>
 
 </html>
